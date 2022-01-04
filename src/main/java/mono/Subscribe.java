@@ -1,19 +1,21 @@
 package mono;
 
 import reactor.core.publisher.Mono;
+import util.Utils;
 
 public class Subscribe {
     public static void main(String[] args) {
         Mono<String> mono = Mono.just("roll");
 
-        mono.subscribe(item -> System.out.println(item + " the ball"),
-                err -> System.out.println("ERROR: " + err.getMessage()),
-                () -> System.out.println("I'm completed!"));
+        mono.subscribe(Utils.onNext(),
+                       Utils.onError(),
+                       Utils.onCompletion());
 
-        Mono<Object> monoExcepction = Mono.just("Dummy data").map(obj -> {throw new RuntimeException("I'm an Exception");});
+        Mono<Object> monoExcepction = Mono.just("Dummy data")
+                                          .map(obj -> {throw new RuntimeException("I'm an Exception");});
 
-        monoExcepction.subscribe(item -> System.out.println(item + " the ball"),
-                                 err -> System.out.println("ERROR: " + err.getMessage()),
-                                 () -> System.out.println("I'm completed!"));
+        monoExcepction.subscribe(Utils.onNext(),
+                                 Utils.onError(),
+                                 Utils.onCompletion());
     }
 }

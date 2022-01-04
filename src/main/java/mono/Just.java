@@ -1,6 +1,7 @@
 package mono;
 
 import reactor.core.publisher.Mono;
+import util.Utils;
 
 public class Just {
     public static void main(String[] args) {
@@ -10,6 +11,6 @@ public class Just {
         System.out.println(mono);
 
         //nothing happens until subscribe
-        mono.subscribe(System.out::println);
+        mono.subscribe(Utils.onNext());
     }
 }
