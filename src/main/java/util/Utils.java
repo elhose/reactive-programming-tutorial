@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 
 import java.util.function.Consumer;
 
@@ -22,5 +23,11 @@ public class Utils {
 
     public static Runnable onCompletion() {
         return () -> System.out.println("Completed!");
+    }
+
+    @SneakyThrows
+    public static void sleep(int seconds) {
+        int timeToSleep = 3 * 1000;
+        Thread.sleep(timeToSleep);
     }
 }
