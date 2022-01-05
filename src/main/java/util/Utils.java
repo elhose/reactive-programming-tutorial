@@ -27,7 +27,7 @@ public class Utils {
 
     @SneakyThrows
     public static void sleep(int seconds) {
-        int timeToSleep = 3 * 1000;
+        int timeToSleep = seconds * 1000;
         Thread.sleep(timeToSleep);
     }
 }
