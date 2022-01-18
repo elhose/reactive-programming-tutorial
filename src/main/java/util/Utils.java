@@ -30,8 +30,12 @@ public class Utils {
 
     @SneakyThrows
     public static void sleep(int seconds) {
-        int timeToSleep = seconds * 1000;
-        Thread.sleep(timeToSleep);
+        sleepMillis(seconds * 1000);
+    }
+
+    @SneakyThrows
+    public static void sleepMillis(int milliseconds) {
+        Thread.sleep(milliseconds);
     }
 
     public static Subscriber<Object> getDefaultSubscriber() {
